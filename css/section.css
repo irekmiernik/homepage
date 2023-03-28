@@ -1,0 +1,29 @@
+.section {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section__header {
+    color: #440393;
+    font-size: 20px;
+}
+
+.section__list {
+    list-style: lower-alpha;
+}
+
+.section__imageContainer {
+    max-width: 505px;
+    max-height: 379px;
+    border: 2px solid red;
+}
+
+.section__imageTitle {
+    font-weight: bold;
+    margin: 0px 0px 20px;
+}
+
+.section__button {
+    max-width: 504px;
+    background-color: #cbd9f7;
+}
