@@ -38,6 +38,6 @@
         setImage(imagesTable[0]);
     }
 
-    init(imagesTable);
+    init();
     document.querySelector(".section__button").addEventListener("click", onButtonClick);
 }
