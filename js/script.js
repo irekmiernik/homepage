@@ -1,11 +1,24 @@
 {
-    const imagesTable = {
-        table: []
+    const imagesTable = [];
+
+    const setImagesTable = () => {
+        imagesTable.push({ link: "Zima w Kaniach.jpg", title: "Zima w Kaniach" });
+        imagesTable.push({ link: "Odległość z Kań do Warszawy Cetrum.jpg", title: "Odległość z Kań do Warszawy Cetrum" });
+        imagesTable.push({ link: "Stacja kolejki WKD w Kaniach-1.jpg", title: "Stacja kolejki WKD w Kaniach" });
+        imagesTable.push({ link: "Stacja kolejki WKD w Kaniach-2.jpg", title: "Stacja kolejki WKD w Kaniach" });
+        imagesTable.push({ link: "Stacja kolejki WKD w Kaniach-3.jpg", title: "Stacja kolejki WKD w Kaniach" });
     }
 
-    const link = () => { return document.querySelector(".js-section__link") }
-    const image = () => { return document.querySelector(".js-section__image") }
-    const imageTitle = () => { return document.querySelector(".section__imageTitle") }
+    const setImage = (imageAccount) => {
+        const sectionImage = document.querySelector(".js-section__image");
+        const sectionHref = document.querySelector(".js-section__href");
+        const sectionImageTitle = document.querySelector(".section__imageTitle");
+
+        sectionImage.src = `images/${imageAccount.link}`;
+        sectionImage.alt = imageAccount.title;
+        sectionHref.href = `images/${imageAccount.link}`;
+        sectionImageTitle.innerText = imageAccount.title;
+    }
 
     const clickCounter = {
         counter: NaN,
@@ -14,29 +27,17 @@
     }
 
     const onButtonClick = () => {
-        link().src = `images/${imagesTable.table[clickCounter.getCounter()].link}`;
-        link().alt = imagesTable.table[clickCounter.getCounter()].title;
-        image().href = `images/${imagesTable.table[clickCounter.getCounter()].link}`;
-        imageTitle().innerText = imagesTable.table[clickCounter.getCounter()].title;
-        if (clickCounter.getCounter() < (imagesTable.table.length - 1)) clickCounter.setCounter(clickCounter.getCounter() + 1);
+        if (clickCounter.getCounter() < (imagesTable.length - 1)) clickCounter.setCounter(clickCounter.getCounter() + 1);
         else clickCounter.setCounter(0);
+        setImage(imagesTable[clickCounter.getCounter()]);
     }
-
-    const click = () => { document.querySelector(".section__button").addEventListener("click", onButtonClick); }
 
     const init = () => {
-        imagesTable.table.push({ link: "Zima w Kaniach.jpg", title: "Zima w Kaniach" });
-        imagesTable.table.push({ link: "Odległość z Kań do Warszawy Cetrum.jpg", title: "Odległość z Kań do Warszawy Cetrum" });
-        imagesTable.table.push({ link: "Stacja kolejki WKD w Kaniach-1.jpg", title: "Stacja kolejki WKD w Kaniach" });
-        imagesTable.table.push({ link: "Stacja kolejki WKD w Kaniach-2.jpg", title: "Stacja kolejki WKD w Kaniach" });
-        imagesTable.table.push({ link: "Stacja kolejki WKD w Kaniach-3.jpg", title: "Stacja kolejki WKD w Kaniach" });
+        setImagesTable();
         clickCounter.setCounter(0);
-        onButtonClick();
+        setImage(imagesTable[0]);
     }
 
-    init();
-    click();
-
+    init(imagesTable);
+    document.querySelector(".section__button").addEventListener("click", onButtonClick);
 }
-
-
