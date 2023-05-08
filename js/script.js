@@ -17,7 +17,7 @@
         table.push({ link: "Stacja kolejki WKD w Kaniach-3.jpg", title: "Stacja kolejki WKD w Kaniach" });
     }
 
-    const setNextImage = () => {
+    const showNextImage = () => {
         let image = imagesTable.nextImage();
         document.querySelector(".js-section__image").src = `images/${image.link}`;
         document.querySelector(".js-section__image").alt = image.title;
@@ -27,9 +27,9 @@
 
     const init = () => {
         inputImages(imagesTable.table);
-        setNextImage();
+        showNextImage();
     }
 
     init();
-    document.querySelector(".section__button").addEventListener("click", setNextImage);
+    document.querySelector(".section__button").addEventListener("click", showNextImage);
 }
