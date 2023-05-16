@@ -27,8 +27,7 @@
     const init = () => {
         inputImages(imagesContainer.table);
         showNextImage();
-        const nextImageButton = document.querySelector(".section__button");
-        nextImageButton.addEventListener("click", showNextImage);
+        document.querySelector(".section__button").addEventListener("click", showNextImage);
     }
 
     init();
